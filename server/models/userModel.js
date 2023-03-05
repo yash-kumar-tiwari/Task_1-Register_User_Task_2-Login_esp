@@ -1,7 +1,8 @@
-//Require Mongoose
+//import Mongoose dependency to create schema and compile schema to model instance 
 import mongoose from 'mongoose';
 import uniqueValidator from 'mongoose-unique-validator';
 
+//create schema for filtering data to be saved in database
 const RegisterSchema = mongoose.Schema({
   _id: Number,
   name: {

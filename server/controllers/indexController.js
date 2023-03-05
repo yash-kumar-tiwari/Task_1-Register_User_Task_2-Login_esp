@@ -1,3 +1,4 @@
+//import connection & all required dependencies 
 import '../models/connection.js';
 import url from 'url';
 import path from 'path';
@@ -49,8 +50,9 @@ export var registerUser = async (req, res, next)=>{
 
 export var userLogin = async (req, res, next)=>{
     
+    //extract content from UI
     var userDetail = req.body;
-    userDetail = {...userDetail, "status":1};
+    userDetail = {...userDetail, "status":1}; //add status to userDetail object
     // console.log(userDetail);
     var result = await RegisterSchemaModel.find(userDetail);
     // console.log(result);
@@ -59,7 +61,7 @@ export var userLogin = async (req, res, next)=>{
     {
         let randomKey = random.generate(25);
         let payload = {"subject":result[0].email};
-        let token = jwt.sign(payload, randomKey);
+        let token = jwt.sign(payload, randomKey); // generate token for successful identification of login
         // let token = jwt.token(payload,Date.now());
         res.status(200).json({"token":token,"userDetails":result[0]});
         // console.log(result[0]);
@@ -71,7 +73,8 @@ export var userLogin = async (req, res, next)=>{
 }
 
 export var manageUser = async (req, res, next)=>{
-    var condition_obj = {"role":"user"}
+
+    var condition_obj = {"role":"user"}  //condition for extracting only details whose role is user
     var userList = await RegisterSchemaModel.find(condition_obj);
 
     // console.log(userList);
