@@ -11,6 +11,7 @@ function Login() {
 
   const handleSubmit = (event)=>{
     event.preventDefault();
+
     var userDetails = { "email":email, "password":password };
 
     axios.post(_webapi+"login", userDetails).then((result)=>{
@@ -61,11 +62,11 @@ function Login() {
                 <form onSubmit={handleSubmit}>
                     <div class="form-group">
                         <label for="email"> <b>Email:</b> </label>
-                        <input required type="email" class="form-control" name="email" value={email} onChange={element=>setEmail(element.target.value)} />
+                        <input required type="email" placeholder='Enter Your Email' class="form-control" name="email" value={email} onChange={element=>setEmail(element.target.value)} />
                     </div>
                     <div class="form-group">
                         <label for="pwd"> <b>Password:</b> </label>
-                        <input required type="password" class="form-control" name="password" value={password} onChange={element=>setPassword(element.target.value)} />
+                        <input required type="password" placeholder='Enter Your Password' class="form-control" name="password" value={password} onChange={element=>setPassword(element.target.value)} />
                     </div>
                     <br/>
                     <div>
