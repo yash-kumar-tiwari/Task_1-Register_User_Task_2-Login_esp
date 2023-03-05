@@ -23,3 +23,5 @@ check frontend validation of fields by entering at least character in them other
 * after register user details please dont forget to change their status from 0 to 1 for login purpose & also enter an entry of admin and change its role from user to admin for login
 
 * on login, enter email & password if details matched from database and role of fetched detail is admin then you will see message on top of input field as "Logged in as Admin" & if user then you will see message on top of input field as "Logged in as User" & if input credentials are correct but its status is not 1 then you will see message on top of input field as "Invalid User or Verify Your Account"
+
+* if it gives you error for directory not found then you need to create a new directory in client/public/assets/uploads/profilepic
